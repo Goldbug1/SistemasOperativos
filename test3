@@ -1,0 +1,14 @@
+#!/usr/local/bin/perl
+print "Password? ";		# Ask for input
+$a = <STDIN>;			# Get input
+chop $a;			# Remove the newline at end
+while ($a ne "fred")		# While input is wrong...
+{
+    print "sorry. Again? ";	# Ask again
+    $a = <STDIN>;		# Get input again
+    chop $a;			# Chop off newline again
+}
+
+
+
+

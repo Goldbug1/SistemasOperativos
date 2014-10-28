@@ -1,0 +1,99 @@
+https://github.com/Goldbug1/SistemasOperativos.git
+
+me cree una cuenta en git
+Goldbug1
+admin123
+--------------
+27/10
+Me puse a aprender un poco el lenguaje perl de esta pagina
+http://www.comp.leeds.ac.uk/Perl/scalars.html
+
+--------------------------
+HAcer , 
+
+
+1 cola de listos ,  Buscar implementacion en perl 
+  cola de bloqueados 
+
+2. tenog que definir la entrada de datos  ingresa da a uno los procesos . asi 
+
+3 tenog que detectarDeadlock?
+
+
+P   E |                                                 W   E   E   E||    
+R     |    
+O   D |                                     W   W   W   D||      
+C     |    
+E   C |                     W   W   W   W   W   W   C||    
+S     |    
+S   B |                 W   W   W   B   B   B   B||    
+      |    
+    A | A   A   A   A   A   A   A||    
+      |_________________________________________________________________
+       0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16
+	              	T I M E  =>  
+
+como defino el orden de llegada de cada proceso?
+
+--------------
+
+cpu burst el timepo que tarda el procesador para estar listo denuevo
+
+Explosión de CPU: la cantidad de tiempo el proceso usa el procesador antes de que esté más listo
+
+----------------------
+Si, puede ser, pero ese seria un ejemplo, puede haber mas
+
+y recorda que todo proceso empieza y termina con cpu burst y que en el medio puede haber mas rafagas de cpu y de i'o intercaladas
+
+Saludos!
+
+2014-10-24 16:58 GMT-03:00 Gold Bug <tavosavila@hotmail.com>:
+
+    Okey , pasandolo en limpio , lo datos que son recibido por la aplicacion serian algo asi:
+
+    Planificardor : (1 o 2)  expropiativo o no expropiativo
+    CPU :  1 o 2 nucleos
+    Bibleoteca de hilos : (FIFO o RR o HRRN o SPN o SRT)
+
+    Rafagas :
+                   CPU     I/O_1     I/O_2     I/O_3    TipoHilo
+    --------------------------------------------------------------
+    P1                                                                     
+        H1        4          1            1           0             KLT
+        H2        1          2            0           0             KLT
+    ----------------------------------------------------------------
+    P2
+        H1        5          1            0           0             KLT
+    ----------------------------------------------------------------
+    P3
+       H1         2           0          1            1              KLT
+       H2         2           0          0            0              KLU
+       H3         3           1          0            0              KLU
+    ----------------------------------------------------------------
+    P4
+    ....
+    ....
+    P10
+
+    Entendi bien ?
+
+
+
+    Date: Fri, 24 Oct 2014 15:59:45 -0300
+    Subject: Re: ConsultaTp 2 SistemaOperativo Caece
+    From: ngesquivel@gmail.com
+    To: tavosavila@hotmail.com
+
+
+    Respuestas:
+
+    3.1.1 -> correcto. Con esos estados es suficiente
+
+    3.2.2 -> La cantidad son 10 procesos max (o sea, de P1 a P10, y considera que ellos deben incluir hilos). La longitud esta expresada en las columnas de cpu y de i/o (max 12 rafagas). Podemos definir cada uno como un max de 10 ut cada uno para que no sea tan largo.
+
+    3.2.5 --> cuando incluis por proceso sus rafagas, tendrias que poner por cada uno
+    Ingreso cpu o i/o
+    Ingreso long
+
+    Saludos!

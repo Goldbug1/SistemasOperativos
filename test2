@@ -1,0 +1,6 @@
+$a = 'apples';
+$b = 'pears';
+print $a.' and '.$b;
+
+
+
