@@ -1,9 +1,17 @@
 package Scheduler;
 
- use strict; #Nos ponemos serios
+  use strict;
  
+  use BlockedState;
+  use ReadyState;
 
-
+  my $blockedState= BlockedState->new();
+  my $readyState = ReadyState->new();
+  
+  
+  
+  
+  
   ######################################################################
   #Constructor de la clase
   #
@@ -18,23 +26,54 @@ package Scheduler;
   }
   
   ######################################################################
-  #Métodos de acceso a los datos de la clase
-  #
+  #Métodos de clase
+  #######################################################################
 
  
-  ######################################################################
-  #Métodos de la clase
-  #
-
+  # devuelve en un proceso deacuerdo a tipo de SCHEDULER : RR , FIFO ..
+  # Parametros : -
+  # Retorna : id de proceso.
+  
   sub getNextProcess{
+  	# Se debe agregar la logica de scheduler para obtener el proximo proceso .
+  	# ahora esta devolviendo el siguente listo. 
+        
        my $self=shift; #El primer parámetro de un metodo es la  clase
  
-        my $DataElement = $_[0]->getNextReady();
-        
+        my $DataElement = $readyState->getNextReady(); 
          { 
             print "Saco elemento listo".$DataElement." \n";
         } 
+        
+        return $DataElement;
   }
+  
+ # agrega un proceso a listos , 
+ # Parametros : id de proceso.
+ # Retorna : OK o ERROR
+ 
+  sub addProcess {
+       my $self=shift;
+       my $idProcess=$_[0];
+       # my ($idProcess,$rvector1,$rvector2) = @_;
+   
+        $readyState->addReady($idProcess);
+        
+         print "agrego  elemento listo \n";
+        
+        return 'OK';
+  }
+  
+  
+  
+  sub dummy {
+	
+   addReady(9999);
+   addReady(9999);
+
+
+}
+  
 
   ######################################################################
   #Destructor
