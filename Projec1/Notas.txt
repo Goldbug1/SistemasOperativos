@@ -1,0 +1,5 @@
+http://chicken.genouest.org/perl/multi-threading-with-perl/  
+http://docstore.mik.ua/orelly/perl/prog3/ch17_02.htm  
+http://perldoc.perl.org/Thread/Queue.html
+http://www.fnal.gov/docs/products/perl/pod.new/5.00503/pod/perlthrtut.html
+

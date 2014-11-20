@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includepath>
+  <includepathentry path="${project_loc}" />
+  <includepathentry path="${resource_loc:/SistemasOperativosTest1/Scheduler}" />
+  <includepathentry path="${resource_loc:/SistemasOperativosTest1/Scheduler/Blocked}" />
+  <includepathentry path="${resource_loc:/SistemasOperativosTest1/Scheduler/Ready}" />
+  <includepathentry path="${resource_loc:/SistemasOperativosTest1/Core}" />
+  <includepathentry path="${resource_loc:/SistemasOperativosTest1/Channels}" />
+  <includepathentry path="${resource_loc:/SistemasOperativosTest1/Model}" />
+</includepath>
+
