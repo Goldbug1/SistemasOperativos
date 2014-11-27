@@ -1,4 +1,12 @@
 #!/usr/bin/perl
+  use lib './Scheduler';
+  use lib './Scheduler/Blocked';
+  use lib './Scheduler/Ready';
+
+  use lib './Core';
+  use lib './Model';
+  use lib './Channels';
+
   use Thread; 
   use threads::shared;
   use Thread::Semaphore;
@@ -8,10 +16,10 @@
   use Channel;
   use Process;
   
-  # constantes , separa en otra clase
+  # constantes , separar en otra clase
   use constant DEBUG => 0;
   
-  use constant TIME_FPS=>1; # sleep entre cada procesamiento 
+  use constant TIME_FPS=>1; # sleep entre cada procesamiento en Seg.
   
   use constant INTERRUP_EXIT=>-2;
   use constant INTERRUP_STOP=>-1;
@@ -123,37 +131,33 @@ sub listenerCore{
 	
 }
 
-sub loggerTp {
-	
-	print $_[0];
-	
-}
+
 
 sub mInitialization {
 	
-	loggerTp("Inicializando...\n");
+    print "Inicializando...\n";
 	
 	mLoadProcess();
 	
     $thrScheduler = threads->create(\&listenerScheduler);
     $thrScheduler->detach();
     
-    loggerTp("Scheduler....OK\n");
+    print "Scheduler....OK\n";
     
     $thrCore = threads->create(\&listenerCore);
     $thrCore->detach();
-    loggerTp("Core.........OK\n");
+    print "Core.........OK\n";
     
     
     $thrOI = threads->create(\&listenerOI);
     $thrOI->detach();
-    loggerTp("OI.........OK\n");
+    print "OI.........OK\n";
 
 }  
   
 sub mLoadProcess {
 	
-	loggerTp("loadProcess.... \n");
+	print "loadProcess.... \n";
 	               
 	               # idProceso | timeArrive | alias | Type | threadB | idThread 
 	 
