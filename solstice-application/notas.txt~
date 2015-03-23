@@ -1,0 +1,55 @@
+Necesito construir un proyecto android 
+
+ mvn archetype:generate \
+  -DarchetypeArtifactId=android-quickstart \
+  -DarchetypeGroupId=de.akquinet.android.archetypes \
+  -DarchetypeVersion=1.0.0 \
+  -DgroupId=com.solstice \
+  -DartifactId=solstice-application2
+
+mvn archetype:generate -DarchetypeArtifactId=android-release -DarchetypeGroupId=de.akquinet.android.archetypes -DarchetypeVersion=1.0.11 -DgroupId=com.foo.bar -DartifactId=my-android-project -Dpackage=com.foo.bar.android
+
+mvn archetype:generate -DarchetypeArtifactId=android-release -DarchetypeGroupId=de.akquinet.android.archetypes -DarchetypeVersion=1.0.11 -DgroupId=com.uluvit -DartifactId=UluvitAndroid -Dpackage=com.uluvit 
+
+
+Intente costruir mvn eclipse:eclipse
+
+INFO] 
+[INFO] --- maven-android-plugin:2.8.4:generate-sources (default-generate-sources) @ solstice-application ---
+[INFO] ANDROID-904-002: Found aidl files: Count = 0
+[INFO] ANDROID-904-002: Found aidl files: Count = 0
+[INFO] Copying local resource files to combined resource directory.
+[ERROR] Error when generating sources.
+org.apache.maven.plugin.MojoExecutionException: No Android SDK path could be found. You may configure it in the pom using <sdk><path>...</path></sdk> or <properties><sdk.path>...</sdk.path></properties> or on command-line using -Dandroid.sdk.path=... or by setting environment variable ANDROID_HOME
+	at com.jayway.maven.plugins.android.AbstractAndroidMojo.getAndroidHomeOrThrow(AbstractAndroidMojo.java:710)
+	at com.jayway.maven.plugins.android.AbstractAndroidMojo.getAndroidSdk(AbstractAndroidMojo.java:679)
+
+me tengo que installar el SDK android . http://www.if-not-true-then-false.com/2010/android-sdk-and-eclipse-adt-on-fedora-centos-red-hat-rhel/
+
+## Select place to download
+cd /tmp
+ 
+## Download Android SDK r16 package for Fedora, Red Hat (RHEL) ##
+wget http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
+
+https://spring.io/guides/gs/android/
+
+ANDROID_HOME
+export ANDROID_HOME=/opt/android-sdk
+
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+http://www.if-not-true-then-false.com/2010/android-sdk-and-eclipse-adt-on-fedora-centos-red-hat-rhel/
+//////////////////////////////////************************
+
+http://developer.android.com/training/basics/firstapp/creating-project.html
+
+list targets
+
+android create project --target 1 --name MyFirstApp \
+--path /MyFirstApp --activity MyActivity \
+--package com.example.myfirstapp
+
+
+
+
