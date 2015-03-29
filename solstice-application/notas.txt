@@ -51,6 +51,14 @@ android create project --target 1 --name MyFirstApp \
 --package com.example.myfirstapp
 
 adb install solstice-application-1.0-SNAPSHOT.apk
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&66666
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&66
+perdi todo lo que habiia echo.
+me baje el android studio
+primero arme el ejemplo de esta pagina
+http://theopentutorials.com/tutorials/android/listview/android-custom-listview-with-image-and-text-using-arrayadapter/
 
-
-
+Listo el ejemplo essta andandoo.
+Ahora tengo que agregar el volley para que levante los datos y las fotos
+este link puede servir
+http://www.androidhive.info/2014/07/android-custom-listview-with-image-and-text-using-volley/
