@@ -36,17 +36,6 @@ import com.android.volley.VolleyLog;
 public class ListContacts extends Activity implements
         OnItemClickListener {
 
-    public static final String[] titles = new String[]{"Strawberry",
-            "Banana", "Orange", "Mixed"};
-
-    public static final String[] descriptions = new String[]{
-            "It is an aggregate accessory fruit",
-            "It is the largest herbaceous flowering plant", "Citrus Fruit",
-            "Mixed Fruits"};
-
-    public static final Integer[] images = {R.drawable.contact,
-            R.drawable.contact, R.drawable.contact, R.drawable.contact};
-
     public ListView listView;
     public List<Contact> contacts;
     private CustomListViewAdapter adapter;
@@ -106,14 +95,15 @@ public class ListContacts extends Activity implements
 
                                 contact.setBirthdate(obj.getString("birthdate"));
 
+                                 JSONObject phones = obj.getJSONObject("phone");
 
-                             // todo revisar para que tome los telefonos
-                             /*   JSONArray phoneArry = obj.getJSONArray("phone");
-                                ArrayList<String> phones = new ArrayList<String>();
-                                for (int j = 0; j < phoneArry.length(); j++) {
-                                    phones.add((String) phoneArry.get(j));
-                                }*/
+                                ArrayList<String> arrayPhones = new ArrayList<String>();
 
+                                arrayPhones.add(phones.getString("work"));
+                                arrayPhones.add(phones.getString("home"));
+                                arrayPhones.add(phones.getString("mobile"));
+
+                                contact.setPhones(arrayPhones);
                                 contacts.add(contact);
 
                             } catch (JSONException e) {

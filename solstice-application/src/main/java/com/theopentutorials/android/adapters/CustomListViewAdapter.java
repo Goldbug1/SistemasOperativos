@@ -12,12 +12,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.theopentutorials.android.app.AppController;
+
 /**
  * Created by gt on 28/03/2015.
  */
 public class CustomListViewAdapter extends ArrayAdapter<Contact> {
 
     Context context;
+
+    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     public CustomListViewAdapter(Context context, int resourceId,
                                  List<Contact> items) {
@@ -27,9 +33,12 @@ public class CustomListViewAdapter extends ArrayAdapter<Contact> {
 
     /*private view holder class*/
     private class ViewHolder {
-        ImageView imageView;
+        //ImageView imageView;
+        NetworkImageView smartImage;
         TextView name;
-       // TextView txtDesc;
+        TextView pWork;
+        TextView pHome;
+        TextView pMobile;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -40,17 +49,28 @@ public class CustomListViewAdapter extends ArrayAdapter<Contact> {
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_item, null);
+
             holder = new ViewHolder();
-       //     holder.txtDesc = (TextView) convertView.findViewById(R.id.desc);
             holder.name = (TextView) convertView.findViewById(R.id.name);
-         //   holder.imageView = (ImageView) convertView.findViewById(R.id.icon);
+            holder.pWork = (TextView) convertView.findViewById(R.id.phoneWork);
+            holder.pMobile = (TextView) convertView.findViewById(R.id.phoneMobile);
+            holder.pHome = (TextView) convertView.findViewById(R.id.phoneHome);
+
+           // try load image
+            if (imageLoader == null)
+                imageLoader = AppController.getInstance().getImageLoader();
+
+            holder.smartImage = (NetworkImageView) convertView.findViewById(R.id.photo);
             convertView.setTag(holder);
+
         } else
             holder = (ViewHolder) convertView.getTag();
 
         holder.name.setText(contact.getName());
-     //   holder.txtTitle.setText(contact.getTitle());
-       // holder.imageView.setImageResource(contact.getImageId());
+        holder.pWork.setText("Work :"+contact.getPhones().get(0));
+        holder.pHome.setText("Home :"+contact.getPhones().get(1));
+        holder.pMobile.setText("Mobile :"+contact.getPhones().get(2));
+        holder.smartImage.setImageUrl(contact.getSmallImageURL(), imageLoader);
 
         return convertView;
     }
