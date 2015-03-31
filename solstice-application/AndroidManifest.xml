@@ -10,9 +10,9 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:name="com.theopentutorials.android.app.AppController">
+        android:name="com.solstice.codechallenge.app.AppController">
         <activity
-            android:name=".activities.ListContacts"
+            android:name="com.solstice.codechallenge.activities.ListContacts"
 
             android:label="@string/app_name" >
             <intent-filter>
@@ -20,6 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DetailContact"></activity>
+        <activity android:name="com.solstice.codechallenge.activities.DetailContact"></activity>
     </application>
 </manifest>
