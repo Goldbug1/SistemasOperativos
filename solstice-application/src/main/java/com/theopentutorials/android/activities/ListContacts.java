@@ -66,7 +66,7 @@ public class ListContacts extends Activity implements
 
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading...");
+        pDialog.setMessage("Loading contacts...");
         pDialog.show();
 
         // changing action bar color
@@ -139,6 +139,9 @@ public class ListContacts extends Activity implements
                 Toast.LENGTH_SHORT);
         //  toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
+
+        setContentView(R.layout.details_item);
+
     }
 
 
