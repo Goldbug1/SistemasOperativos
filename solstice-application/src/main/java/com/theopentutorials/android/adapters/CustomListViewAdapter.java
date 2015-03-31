@@ -52,9 +52,9 @@ public class CustomListViewAdapter extends ArrayAdapter<Contact> {
 
             holder = new ViewHolder();
             holder.name = (TextView) convertView.findViewById(R.id.name);
-            holder.pWork = (TextView) convertView.findViewById(R.id.phoneWork);
+          //  holder.pWork = (TextView) convertView.findViewById(R.id.phoneWork);
             holder.pMobile = (TextView) convertView.findViewById(R.id.phoneMobile);
-            holder.pHome = (TextView) convertView.findViewById(R.id.phoneHome);
+           // holder.pHome = (TextView) convertView.findViewById(R.id.phoneHome);
 
            // try load image
             if (imageLoader == null)

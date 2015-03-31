@@ -23,24 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/phoneWork"
-        android:layout_below="@+id/name"
-        android:layout_toRightOf="@+id/photo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/phoneHome"
-        android:layout_alignBottom="@+id/photo"
-        android:layout_toRightOf="@+id/photo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/phoneMobile"
-        android:layout_below="@+id/phoneWork"
+        android:layout_below="@+id/name"
         android:layout_toRightOf="@+id/photo" />
 
 </RelativeLayout>

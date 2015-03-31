@@ -139,12 +139,15 @@ public class DetailContact extends Activity {
         TextView company = (TextView)  findViewById(R.id.company);
         TextView email = (TextView)  findViewById(R.id.email);
         TextView address = (TextView)  findViewById(R.id.address);
-
-
-        // phones
+       // phones
         TextView home = (TextView)  findViewById(R.id.home);
         TextView work = (TextView)  findViewById(R.id.work);
         TextView mobile = (TextView)  findViewById(R.id.mobile);
+
+
+        home.setText(detailsContact.getPhones().getHome());
+        work.setText(detailsContact.getPhones().getWork());
+        mobile.setText(detailsContact.getPhones().getMobile());
 
         txtName.setText(detailsContact.getName());
         birthday.setText(detailsContact.getBirthdate());
