@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/phoneHome"
-        android:layout_below="@+id/phoneWork"
+        android:layout_alignBottom="@+id/photo"
         android:layout_toRightOf="@+id/photo" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/phoneMobile"
-        android:layout_below="@+id/phoneHome"
+        android:layout_below="@+id/phoneWork"
         android:layout_toRightOf="@+id/photo" />
 
 </RelativeLayout>

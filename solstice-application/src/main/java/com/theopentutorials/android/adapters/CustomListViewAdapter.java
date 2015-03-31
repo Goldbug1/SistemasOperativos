@@ -67,9 +67,9 @@ public class CustomListViewAdapter extends ArrayAdapter<Contact> {
             holder = (ViewHolder) convertView.getTag();
 
         holder.name.setText(contact.getName());
-        holder.pWork.setText("Work :"+contact.getPhones().get(0));
-        holder.pHome.setText("Home :"+contact.getPhones().get(1));
-        holder.pMobile.setText("Mobile :"+contact.getPhones().get(2));
+       // holder.pWork.setText("Work :"+contact.getPhones().get(0));
+       // holder.pHome.setText("Home :"+contact.getPhones().get(1));
+        holder.pMobile.setText("Mobile :"+contact.getPhones().getMobile());
         holder.smartImage.setImageUrl(contact.getSmallImageURL(), imageLoader);
 
         return convertView;

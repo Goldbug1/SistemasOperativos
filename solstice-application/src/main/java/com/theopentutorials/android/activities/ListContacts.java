@@ -28,6 +28,8 @@ import org.json.JSONObject;
 import android.util.Log;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.theopentutorials.android.beans.Phones;
+
 import android.content.Intent;
 
 
@@ -39,6 +41,8 @@ public class ListContacts extends Activity implements
 
     public ListView listView;
     public List<Contact> contacts;
+    // contact selected
+    public static Contact contact;
     private CustomListViewAdapter adapter;
 
 
@@ -96,15 +100,16 @@ public class ListContacts extends Activity implements
 
                                 contact.setBirthdate(obj.getString("birthdate"));
 
-                                 JSONObject phones = obj.getJSONObject("phone");
+                                JSONObject phones = obj.getJSONObject("phone");
 
-                                ArrayList<String> arrayPhones = new ArrayList<String>();
+                                Phones phonesAux= new Phones();
 
-                                arrayPhones.add(phones.getString("work"));
-                                arrayPhones.add(phones.getString("home"));
-                                arrayPhones.add(phones.getString("mobile"));
+                                phonesAux.setWork(phones.getString("work"));
+                                phonesAux.setHome(phones.getString("home"));
+                                phonesAux.setMobile(phones.getString("mobile"));
 
-                                contact.setPhones(arrayPhones);
+                                contact.setPhones(phonesAux);
+
                                 contacts.add(contact);
 
                             } catch (JSONException e) {
@@ -135,21 +140,16 @@ public class ListContacts extends Activity implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
-        /*Toast toast = Toast.makeText(getApplicationContext(),
-                "Item " + (position + 1) + ": " + contacts.get(position),
-                Toast.LENGTH_SHORT);
-        //  toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-        toast.show();
-*/
-
-        //Starting a new Intent
         Intent nextScreen = new Intent(getApplicationContext(), DetailContact.class);
+       // TODO ver por que no me toma la clase serializada , me arroja
+    //
+    //   Bundle bundle = new Bundle();
+    //   Contact contactAux= contacts.get(position);
+    //    bundle.putSerializable("contact",contactAux);
 
         //Sending data to another Activity
-        nextScreen.putExtra("name", contacts.get(position).getName());
-        nextScreen.putExtra("detailsUrl", contacts.get(position).getDetailsURL());
-        nextScreen.putExtra("birthdate", contacts.get(position).getBirthdate());
-
+    //    nextScreen.putExtras(bundle);
+        contact=contacts.get(position);
         startActivity(nextScreen);
 
     }

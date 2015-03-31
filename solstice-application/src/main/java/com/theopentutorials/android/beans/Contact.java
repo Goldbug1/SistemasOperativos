@@ -1,10 +1,14 @@
 package com.theopentutorials.android.beans;
 
 import java.util.ArrayList;
+
+import java.io.Serializable;
+
 /**
  * Created by tavo on 28/03/2015.
  */
-public class Contact {
+public final class Contact implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name;
     private String employeeId;
     private String company;
@@ -12,22 +16,22 @@ public class Contact {
     private String smallImageURL;// ver de caregar la imagen
     private String birthdate;
 
-    private ArrayList<String> phones;
+    private Phones phones;
 
     public Contact(){
 
 
     }
 
-    public Contact(String name,String employeeId,String company,
-                   String detailsURL,String smallImageURL,String birthdate, ArrayList<String> phones) {
+   /* public Contact(String name,String employeeId,String company,
+                   String detailsURL,String smallImageURL,String birthdate, Phones phones) {
         this.name=name;
         this.employeeId=employeeId;
         this.company=company;
         this.detailsURL=detailsURL;
         this.smallImageURL=smallImageURL;
         this.birthdate=birthdate;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -77,11 +81,11 @@ public class Contact {
         this.birthdate = birthdate;
     }
 
-    public ArrayList<String> getPhones() {
+    public Phones getPhones() {
         return phones;
     }
 
-    public void setPhones(ArrayList<String> phones) {
+    public void setPhones(Phones phones) {
         this.phones = phones;
     }
 

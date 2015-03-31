@@ -36,6 +36,9 @@ public class DetailContact extends Activity {
     private static final String TAG = DetailContact.class.getSimpleName();
     private ProgressDialog pDialog;
     private DetailsContact detailsContact;
+    // contact selected
+    private Contact contact;
+
     ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
 
@@ -43,7 +46,6 @@ public class DetailContact extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_item);
-
         Intent i = getIntent();
         // Receiving the Data
 
@@ -52,11 +54,11 @@ public class DetailContact extends Activity {
         pDialog.setMessage("Loading details...");
         pDialog.show();
 
-        final String detailsUrl = i.getStringExtra("detailsUrl");
+        // obtengo el contacto a mostrar el detalle.
+      //  contact = (Contact) getIntent().getExtras().getSerializable("contact");
+        contact= ListContacts.contact;
 
-        detailsContact = new DetailsContact();
-        detailsContact.setName(i.getStringExtra("name"));
-        detailsContact.setBirthdate(i.getStringExtra("birthdate"));
+        final String detailsUrl = contact.getDetailsURL();
 
         Log.e("details URL:",  detailsUrl);
 
@@ -71,15 +73,21 @@ public class DetailContact extends Activity {
                     public void onResponse(JSONObject response) {
                            hidePDialog();
                try {
+                               JSONObject obj = response;
 
-                                JSONObject obj = response;
+                               detailsContact = new DetailsContact();
+                               detailsContact.setName(contact.getName());
+                               detailsContact.setBirthdate(contact.getBirthdate());
+                               detailsContact.setCompany(contact.getCompany());
+                               detailsContact.setPhones(contact.getPhones());
 
-                                detailsContact.setEmployeeId(obj.getString("employeeId"));
-                                detailsContact.setEmail(obj.getString("email"));
-                                detailsContact.setWebsite(obj.getString("website"));
-                                detailsContact.setLargeImageURL(obj.getString("largeImageURL"));
 
-                                JSONObject jsonAddress = obj.getJSONObject("address");
+                               detailsContact.setEmployeeId(obj.getString("employeeId"));
+                               detailsContact.setEmail(obj.getString("email"));
+                               detailsContact.setWebsite(obj.getString("website"));
+                               detailsContact.setLargeImageURL(obj.getString("largeImageURL"));
+
+                               JSONObject jsonAddress = obj.getJSONObject("address");
 
                                 Address address=new Address();
 
@@ -128,11 +136,21 @@ public class DetailContact extends Activity {
 
         TextView txtName = (TextView) findViewById(R.id.name);
         TextView birthday = (TextView) findViewById(R.id.birthday);
+        TextView company = (TextView)  findViewById(R.id.company);
+        TextView email = (TextView)  findViewById(R.id.email);
+        TextView address = (TextView)  findViewById(R.id.address);
 
 
-        // Displaying Received data
+        // phones
+        TextView home = (TextView)  findViewById(R.id.home);
+        TextView work = (TextView)  findViewById(R.id.work);
+        TextView mobile = (TextView)  findViewById(R.id.mobile);
+
         txtName.setText(detailsContact.getName());
         birthday.setText(detailsContact.getBirthdate());
+        company.setText(detailsContact.getCompany());
+        email.setText(detailsContact.getEmail());
+        address.setText(detailsContact.getAddress().getStreet()+","+detailsContact.getAddress().getCity());
 
 
         if (imageLoader == null)

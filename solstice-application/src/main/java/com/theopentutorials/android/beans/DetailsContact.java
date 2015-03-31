@@ -16,6 +16,24 @@ public class DetailsContact {
     private String email;
     private String website;
     private Address address;
+    private String company;
+    private Phones phones;
+
+    public Phones getPhones() {
+        return phones;
+    }
+
+    public void setPhones(Phones phones) {
+        this.phones = phones;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
 
     public String getName() {
         return name;
