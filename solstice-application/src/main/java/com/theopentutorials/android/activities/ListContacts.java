@@ -28,6 +28,7 @@ import org.json.JSONObject;
 import android.util.Log;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import android.content.Intent;
 
 
 /**
@@ -134,13 +135,22 @@ public class ListContacts extends Activity implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
-        Toast toast = Toast.makeText(getApplicationContext(),
+        /*Toast toast = Toast.makeText(getApplicationContext(),
                 "Item " + (position + 1) + ": " + contacts.get(position),
                 Toast.LENGTH_SHORT);
         //  toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
+*/
 
-        setContentView(R.layout.details_item);
+        //Starting a new Intent
+        Intent nextScreen = new Intent(getApplicationContext(), DetailContact.class);
+
+        //Sending data to another Activity
+        nextScreen.putExtra("name", contacts.get(position).getName());
+        nextScreen.putExtra("detailsUrl", contacts.get(position).getDetailsURL());
+        nextScreen.putExtra("birthdate", contacts.get(position).getBirthdate());
+
+        startActivity(nextScreen);
 
     }
 

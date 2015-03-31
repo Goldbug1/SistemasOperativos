@@ -66,3 +66,14 @@ http://www.androidhive.info/2014/07/android-custom-listview-with-image-and-text-
 todo cambiar el nombre de los paquetes
 me baje esta clase por que no me tomaba el import android.support.v4.uti
 https://android.googlesource.com/platform/frameworks/support.git/+/795b97d901e1793dac5c3e67d43c96a758fec388/v4/java/android/support/v4/util/LruCache.java
+
+Listo , andando la parte de listado de contactos .Ahora tengo que ver de crear la segunda pantalla para mostrar el detalle de cada
+contacto. este ejemplo me puede ayudar
+
+http://www.androidhive.info/2011/08/how-to-switch-between-activities-in-android/
+
+Me esta explotando al armar el json del detalle , ya que piensa que es un array , pruebo esto
+http://blog.chrisblunt.com/android-getting-started-with-volley/
+http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
+
+tuve que cambiar a JSONObject

@@ -2,7 +2,7 @@ package com.theopentutorials.android.beans;
 
 import java.util.ArrayList;
 /**
- * Created by gt on 28/03/2015.
+ * Created by tavo on 28/03/2015.
  */
 public class Contact {
     private String name;
